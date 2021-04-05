@@ -3,104 +3,81 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matascon <matascon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parmarti <parmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/29 10:38:54 by matascon          #+#    #+#             */
-/*   Updated: 2020/07/08 11:17:43 by matascon         ###   ########.fr       */
+/*   Created: 2020/07/06 09:48:37 by parmarti          #+#    #+#             */
+/*   Updated: 2020/07/08 19:28:57 by parmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	number_str(char *s, char c)
+static int	ft_rows(char const *s, char c)
 {
-	int	n_str;
-	int	check;
-	int i;
+	int rows;
 
-	n_str = 0;
-	check = 0;
-	i = -1;
-	if (s[0] == '\0')
-		return (0);
-	while (s[++i] != '\0')
+	rows = 0;
+	while (*s)
 	{
-		if (s[i] == c)
-			check = 0;
-		else if (check++ == 0)
-			n_str++;
+		while (*s == c)
+			s++;
+		if (*s == '\0')
+			return (rows);
+		while (*s && *s != c)
+			s++;
+		rows++;
 	}
-	return (n_str);
+	return (rows);
 }
 
-static char	**free_ptr(char **ptr, int i)
+static int	ft_columns(char const *s, char c)
 {
-	while (--i >= 0)
-		free(ptr[i]);
-	free(ptr);
-	return (ptr);
+	int	columns;
+
+	columns = 0;
+	while (*s == c)
+		s++;
+	while (*s && *s != c)
+	{
+		columns++;
+		s++;
+	}
+	return (columns);
 }
 
-static char	**pass_values(char **ptr, char *s, char c, int n_str)
+static char	**ft_free(char **str, int i)
 {
-	int	i;
-	int j;
-	int	k;
-
-	i = -1;
-	j = 0;
-	while (j < n_str)
-	{
-		if (s[++i] != c)
-		{
-			k = 0;
-			while (s[i] != c && s[i] != '\0')
-				ptr[j][k++] = s[i++];
-			ptr[j][k] = '\0';
-			j++;
-		}
-	}
-	ptr[j] = NULL;
-	return (ptr);
-}
-
-static char	**set_ptr(char **ptr, char *s, char c, int n_str)
-{
-	int	i;
-	int	j;
-	int size;
-
-	i = -1;
-	j = 0;
-	while (j < n_str)
-	{
-		if (s[++i] != c)
-		{
-			size = 0;
-			while (s[i + size] != c && s[i + size] != '\0')
-				size++;
-			ptr[j] = (char *)malloc(size + 1);
-			if (!ptr[j])
-				return (free_ptr(ptr, j));
-			i += size;
-			j++;
-		}
-	}
-	ptr = pass_values(ptr, s, c, n_str);
-	return (ptr);
+	while (i)
+		free(str[i--]);
+	free(str);
+	return (0);
 }
 
 char		**ft_split(char const *s, char c)
 {
-	char	**ptr;
-	int		n_str;
+	char	**str;
+	int		rows;
+	int		i;
+	int		j;
 
 	if (!s)
 		return (NULL);
-	n_str = number_str((char *)s, c);
-	ptr = (char **)malloc(sizeof(char *) * (n_str + 1));
-	if (!ptr)
+	rows = ft_rows(s, c);
+	if (!(str = (char **)malloc(sizeof(char*) * (rows + 1))))
 		return (NULL);
-	ptr = set_ptr(ptr, (char *)s, c, n_str);
-	return (ptr);
+	i = 0;
+	while (i < rows)
+	{
+		if (!(str[i] = (char *)malloc(sizeof(char) * ft_columns(s, c) + 1)))
+			return (ft_free(str, i));
+		while (*s == c)
+			s++;
+		j = 0;
+		while (*s && *s != c)
+			str[i][j++] = *s++;
+		str[i][j] = '\0';
+		i++;
+	}
+	str[i] = 0;
+	return (str);
 }

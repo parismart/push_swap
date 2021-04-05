@@ -2,17 +2,24 @@ SRCS_CHECKER	=	checker_42/checker.c			\
 					checker_42/init_values.c		\
 					checker_42/check_operations.c	\
 					checker_42/operations.c
+
 OBJS_CHECKER	= $(SRCS_CHECKER:.c=.o)
+
 NAME_CHECKER	= checker
+
 SRCS_PUSH_SWAP	=	push_swap_42/push_swap.c		\
 					push_swap_42/init_values.c		\
 					push_swap_42/utils.c			\
 					push_swap_42/algorithm.c		\
 					push_swap_42/algorithm_sort.c	\
 					push_swap_42/operations.c
+
 OBJS_PUSH_SWAP	= $(SRCS_PUSH_SWAP:.c=.o)
+
 NAME_PUSH_SWAP	= push_swap
+
 FLAGS			= -Wall -Werror -Wextra
+
 RM				= rm -f
 
 .c.o:

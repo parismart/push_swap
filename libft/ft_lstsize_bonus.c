@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_upper.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matascon <matascon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parmarti <parmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/21 10:11:34 by matascon          #+#    #+#             */
-/*   Updated: 2020/07/21 10:12:05 by matascon         ###   ########.fr       */
+/*   Created: 2020/07/06 16:15:23 by parmarti          #+#    #+#             */
+/*   Updated: 2020/07/07 13:02:32 by parmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_str_upper(char *str)
+int	ft_lstsize(t_list *lst)
 {
-	int i;
+	t_list	*tmp;
+	int		size;
 
-	i = -1;
-	if (!str)
-		return (NULL);
-	while (str[++i] != '\0')
+	tmp = lst;
+	size = 0;
+	while (tmp)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] = str[i] - 32;
+		tmp = tmp->next;
+		size++;
 	}
-	return (str);
+	return (size);
 }

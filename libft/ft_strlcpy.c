@@ -3,39 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matascon <matascon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parmarti <parmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/29 10:39:21 by matascon          #+#    #+#             */
-/*   Updated: 2020/07/08 09:50:56 by matascon         ###   ########.fr       */
+/*   Created: 2020/06/30 12:15:25 by parmarti          #+#    #+#             */
+/*   Updated: 2020/07/08 19:22:10 by parmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	length_src;
-	int		i;
+	size_t i;
 
-	if (!dest || !src)
+	if (!src || !dst)
 		return (0);
-	length_src = 0;
-	while (src[length_src])
-		length_src++;
-	if (n != 0)
+	i = 0;
+	if (size)
 	{
-		i = -1;
-		if (length_src + 1 < n)
+		while (i < size - 1 && src[i] != '\0')
 		{
-			while (++i < (int)length_src)
-				dest[i] = src[i];
+			dst[i] = src[i];
+			i++;
 		}
-		else
-		{
-			while (++i < (int)n - 1)
-				dest[i] = src[i];
-		}
-		dest[i] = '\0';
+		dst[i] = '\0';
 	}
-	return (length_src);
+	i = ft_strlen(src);
+	return (i);
 }

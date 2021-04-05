@@ -3,56 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matascon <matascon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parmarti <parmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/29 10:36:48 by matascon          #+#    #+#             */
-/*   Updated: 2020/06/29 10:42:16 by matascon         ###   ########.fr       */
+/*   Created: 2020/07/05 09:16:27 by parmarti          #+#    #+#             */
+/*   Updated: 2020/07/07 12:09:23 by parmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	number_digit(int n)
+static int	ft_nbrlen(long long nbr)
 {
-	if (n > -10 && n < 10)
-		return (1);
-	else
-		return (1 + number_digit(n / 10));
-}
+	int	len;
 
-static char	*build_str(char *ptr, int n, int n_digit)
-{
-	int	i;
-	int	sign;
-
-	i = n_digit - 1;
-	sign = 1;
-	if (n < 0)
+	len = 0;
+	if (nbr <= 0)
 	{
-		ptr[0] = '-';
-		sign = sign * -1;
+		nbr = -nbr;
+		len++;
 	}
-	while (n >= 10 || n <= -10)
+	while (nbr > 0)
 	{
-		ptr[i--] = ((n % 10) * sign) + 48;
-		n /= 10;
+		nbr = nbr / 10;
+		len++;
 	}
-	ptr[i] = ((n % 10) * sign) + 48;
-	ptr[n_digit] = '\0';
-	return (ptr);
+	return (len);
 }
 
 char		*ft_itoa(int n)
 {
-	char	*ptr;
-	int		n_digit;
+	char		*str;
+	int			l;
+	long long	nbr;
 
-	n_digit = number_digit(n);
+	l = ft_nbrlen(n);
+	if (!(str = malloc(sizeof(char) * l + 1)))
+		return (0);
+	str[l--] = '\0';
+	if (n == 0)
+		str[0] = 48;
+	nbr = n;
 	if (n < 0)
-		n_digit++;
-	ptr = (char *)malloc(n_digit + 1);
-	if (!ptr)
-		return (NULL);
-	ptr = build_str(ptr, n, n_digit);
-	return (ptr);
+	{
+		str[0] = '-';
+		nbr = -nbr;
+	}
+	while (nbr > 0)
+	{
+		str[l--] = nbr % 10 + 48;
+		nbr = nbr / 10;
+	}
+	return (str);
 }
