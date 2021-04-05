@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 11:10:20 by user42            #+#    #+#             */
-/*   Updated: 2021/04/05 11:10:21 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/05 12:01:36 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	algorithm_push_a(t_data *data)
 	i = 0;
 	x = data->num_b / 2;
 	parser_stack(data, data->num_b, data->b);
-	while (i <= x)
+	while (data->b && i <= x)
 	{
 		if (data->b[0] == data->sort[data->index])
 		{
@@ -68,6 +68,8 @@ void	algorithm_push_a(t_data *data)
 
 void	algorithm_sort_a(t_data *data)
 {
+	if (!check_stack(data))
+		return ;
 	parser_stack(data, data->num_a, data->a);
 	while (data->a[0] <= data->pivot)
 	{
@@ -119,7 +121,7 @@ void	algorithm_reverse(t_data *data, int pivot)
 			ft_putstr_fd("rra\n", 1);
 		}
 	}
-	while (data->b[0] != pivot)
+	while (data->b && data->b[0] != pivot)
 	{
 		reverse_rotate(data, 'c');
 		ft_putstr_fd("rrb\n", 1);

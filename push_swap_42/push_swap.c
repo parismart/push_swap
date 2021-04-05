@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 11:10:33 by user42            #+#    #+#             */
-/*   Updated: 2021/04/05 11:10:39 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/05 13:05:29 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,10 @@ int			main(int argc, char **argv)
 	if (check_args(argc, argv))
 		ft_error(data);
 	data = init_values(data, argc, argv);
-	algorithm_median(data);
-	algorithm_push_a(data);
-	algorithm_sort(data);
-	algorithm_sort_a(data);
-	algorithm_sort(data);
-	algorithm_push_b(data, data->pivot_75);
-	algorithm_reverse(data, data->pivot_75);
-	algorithm_sort(data);
-	data->pivot_87 = data->sort[data->index + (data->num_a - data->index) / 2];
-	algorithm_push_b(data, data->pivot_87);
-	algorithm_reverse(data, data->pivot_87);
-	algorithm_sort(data);
-	algorithm_push_b(data, data->sort[data->num_a - 1]);
-	algorithm_sort(data);
+	if (argc <= 6)
+		algorithm_5(data);
+	if (argc > 6)
+		algorithm_100(data);
 				printf("\nPIVOTS ---> %i, %i, %i",  data->pivot, data->pivot_75, data->pivot_87);
 				printf("\nSTACK A ---> ");
 				j = -1;

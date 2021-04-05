@@ -6,21 +6,20 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 11:10:14 by user42            #+#    #+#             */
-/*   Updated: 2021/04/05 11:10:15 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/05 13:50:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	get_pivot(t_data *data)
+static int	get_max_b(t_data *data)
 {
 	int	i;
 	int aux;
 
-	data->aux = (int *)ft_calloc(data->num_b, sizeof(int));
 	i = 0;
 	aux = data->b[0];
-	while (++i < data->num_b && data->b[i])
+	while (++i < data->num_b)
 	{
 		if (aux < data->b[i])
 		{
@@ -42,7 +41,7 @@ static void check_push_reverse(t_data *data, int pivot)
 	{
 		push_a(data);
 		ft_putstr_fd("pa\n", 1);
-		get_pivot(data);
+		get_max_b(data);
 		pivot = data->b[data->index];
 	}
 	else if (data->b[0] != pivot)
@@ -84,7 +83,7 @@ void	algorithm_sort(t_data *data)
 	parser_stack(data, data->num_b, data->b);
 	while (data->num_b)
 	{
-		pivot = get_pivot(data);
+		pivot = get_max_b(data);
 		check_rotate(data, pivot);
 		check_push_reverse(data, pivot);
 	}

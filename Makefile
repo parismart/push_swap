@@ -10,7 +10,9 @@ NAME_CHECKER	= checker
 SRCS_PUSH_SWAP	=	push_swap_42/push_swap.c		\
 					push_swap_42/init_values.c		\
 					push_swap_42/utils.c			\
-					push_swap_42/algorithm.c		\
+					push_swap_42/algorithms.c		\
+					push_swap_42/algorithm_5.c	\
+					push_swap_42/algorithm_100.c	\
 					push_swap_42/algorithm_sort.c	\
 					push_swap_42/operations.c
 

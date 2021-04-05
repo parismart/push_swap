@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 11:10:42 by user42            #+#    #+#             */
-/*   Updated: 2021/04/05 11:10:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/05 13:52:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,11 @@ typedef	struct	s_data
 
 t_data	*init_values(t_data *data, int argc, char **argv);
 void	parser_stack(t_data *data, int num, int *stack);
+int		check_stack(t_data *data);
+int		get_min(t_data *data);
 void	sort(t_data *data, int num, int *stack);
+void	algorithm_5(t_data *data);
+void	algorithm_100(t_data *data);
 void	algorithm_median(t_data *data);
 void	algorithm_push_a(t_data *data);
 void	algorithm_sort(t_data *data);
