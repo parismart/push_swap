@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 13:07:27 by user42            #+#    #+#             */
-/*   Updated: 2021/04/05 13:54:18 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/05 14:19:27 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ void		algorithm_5(t_data *data)
 {
 	while(check_stack(data))
 	{
-		if (data->a[0] == get_max_a(data))
+		get_min(data);
+		if ((float)(data->pivot_index - 1) / (float)data->num_a <= 0.5 && data->a[0] == get_max_a(data))
 		{
 			rotate(data, 'a');
 			ft_putstr_fd("ra\n", 1);
