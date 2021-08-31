@@ -11,8 +11,8 @@
 You're sections headers will be used to reference location of destination.
 
 - [push_swap](#push_swap)
-		- [Learn Build Teach 🚀](#learn-build-teach-)
-		- [Index 📋](#index-)
+		- [Learn Build Teach 🚀](#learn-build-teach)
+		- [Index 📋](#index)
 	- [Description](#description)
 		- [Components](#components)
 		- [Technologies](#technologies)
@@ -30,6 +30,8 @@ You're sections headers will be used to reference location of destination.
 
 - Jamie Dawson - [medium](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
 - JOHN PARK - [youtube](https://www.youtube.com/watch?v=7KW59UO55TQ&list=WL&index=100)
+- push_swap | sort algo - [youtube](https://www.youtube.com/watch?v=egU3YD8OKbw&t=51s)
+- 42_Corrections - [github](https://www.youtube.com/watch?v=egU3YD8OKbw&t=51s)
 
 ---
 
