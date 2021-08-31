@@ -28,10 +28,10 @@ You're sections headers will be used to reference location of destination.
 
 ## References
 
-- Jamie Dawson - [medium](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
-- JOHN PARK - [youtube](https://www.youtube.com/watch?v=7KW59UO55TQ&list=WL&index=100)
-- push_swap | sort algo - [youtube](https://www.youtube.com/watch?v=egU3YD8OKbw&t=51s)
-- 42_Corrections - [github](https://www.youtube.com/watch?v=egU3YD8OKbw&t=51s)
+- Blog Jamie Dawson - [medium](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
+- Video Explanation JOHN PARK - [youtube](https://www.youtube.com/watch?v=7KW59UO55TQ&list=WL&index=100)
+- Video push_swap | sort algo - [youtube](https://www.youtube.com/watch?v=egU3YD8OKbw&t=51s)
+- 42_Corrections - [github](https://github.com/Binary-Hackers/42_Corrections/tree/master/00_Projects/02_Algorithmic/push_swap/00_new_correction_here)
 
 ---
 
