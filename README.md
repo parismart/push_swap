@@ -1,4 +1,5 @@
 # push_swap
+[![parmarti's 42 push_swap Score](https://badge42.vercel.app/api/v2/cl1lvrz0z002109lhozldfih2/project/2126520)](https://github.com/JaeSeoKim/badge42)
 > The project consists of .... School project done at 42Madrid.
 
 ### Learn Build Teach 🚀
